@@ -1,37 +1,75 @@
 <div class="container">
     <div class="p-3 mb-2 bg-light rounded-3">
       <div class="container-fluid py-5">
-        <h4 class="display-5 fw-bold" style="text-align:center;">Cab Booking Dashboard</h4>11 3
+        <span class="display-5 fw-bold">Cab Booking Dashboard</span>
+        <button type="button" class="btn btn-sm btn-dark" style="float:right;">Create New Booking</button>
         <table class="table table-hover">
          
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
+              <th scope="col">Booking Id</th>
+              <th scope="col">Customer Name</th>
+              <th scope="col">Driver Id</th>
+              <th scope="col">Cab Id</th>
+              <th scope="col">Num of Passengers</th>
+              <th scope="col">Total Pay</th>
+              <th scope="col">Actions</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody *ngFor="let booking of this.bookings">
             <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>twitter</td>
+              <td>{{booking.bookingId}}</td>
+              <td>{{booking.customerName}}</td>
+              <td>{{booking.driverId.driverId}}</td>
+              <td>{{booking.cabId.cabId}}</td>
+              <td>{{booking.numPassengers}}</td>
+              <td>{{booking.totalPay}}</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-dark">View</button>
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
 </div>
+
+<!-- <div class="container-fluid mt-2"> -->
+  <!-- <div class="row w-100 m-0" *ngIf="fetching"> -->
+   <!-- <div class="row w-100 m-0" >
+    <div class="col-12 d-flex justify-content-center align-items-center">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div> -->
+  <!-- <div class="row w-100 m-0 mt-2" *ngIf="!fetching"> -->
+  <!-- <div class="row w-100 m-0 mt-2" >
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let booking of bookings">
+      <div class="card shadow-sm" style="height: 100%;">
+        <img [src]="booking?.imgUrl" alt="" class="card-img-top img mt-2">
+        <div class="card-body">
+          <h5 class="m-0 font-weight-bold card-title"> -->
+            <!-- {{ booking?.bookingId }} -->
+          <!-- </h5>
+          <p class="card-text text-limit"> -->
+            <!-- {{ booking?.cabId }} -->
+          <!-- </p>
+        </div>
+        <div class="card-footer bg-white border-0">
+          <div class="d-flex justify-content-evenly align-items-center">
+            <button type="button" class="btn btn-sm btn-dark mr-2">
+              Buy Now
+            </button>
+            <button type="button" class="btn btn-sm btn-dark mr-2" >
+              Add to Cart
+            </button>
+            <button type="button" class="btn btn-sm btn-dark" >
+              Add to Whishlist
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> --> 
