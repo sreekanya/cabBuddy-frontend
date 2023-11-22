@@ -12,6 +12,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AddcabsComponent } from './addcabs/addcabs.component';
 import "@angular/compiler";
 import { ReactiveFormsModule } from '@angular/forms';
+import { AdddriversComponent } from './adddrivers/adddrivers.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CabsComponent,
     DriverComponent,
     NavbarComponent,
-    AddcabsComponent
+    AddcabsComponent,
+    AdddriversComponent
   ],
   imports: [
     BrowserModule,

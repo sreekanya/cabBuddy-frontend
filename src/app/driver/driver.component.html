@@ -3,8 +3,9 @@
       <div class="container-fluid py-5">
         <h5 class="display-5 fw-bold">Drivers Dashboard</h5>
         <div class="d-flex justify-content-end " >
-            <button type="button" class="btn btn-sm btn-dark" style="float:right;">Add New</button>
-          </div>
+          <button type="button" class="btn btn-sm btn-dark" (click)="openModal(driversModal)">Add New</button>
+        </div>
+        
         <table class="table table-hover">
          
           <thead>
@@ -25,8 +26,8 @@
               <td>{{driver.driverAddress}}</td>
               <td>{{driver.driverPhone}}</td>
               <td>
-                <button type="button" class="btn btn-sm btn-dark">Update</button>
-                <button type="button" class="btn btn-sm btn-dark">Dlelete</button>
+                <button type="button" class="btn btn-sm btn-dark me-1" (click)="openModal(driversModal, driver)">Update</button>
+                <button type="button" class="btn btn-sm btn-danger me-1" (click)="deleteDriver(driver.driverId)">Delete</button>
 
               </td>
             </tr>
@@ -35,4 +36,8 @@
       </div>
     </div>
 </div>
+
+<ng-template #driversModal let-model>
+  <app-adddrivers [driverInfo]="driverInfo" (closeModel)="closeModal(driversModal)"></app-adddrivers>
+</ng-template>
 

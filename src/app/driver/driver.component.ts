@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DriverService } from '../services/driver.service';
 
 @Component({
@@ -10,8 +11,9 @@ export class DriverComponent implements OnInit {
 
   public drivers:any[]= [];
   //fetching: boolean = false;
+  public driverInfo:any;
 
-  constructor(private driverService:DriverService) { }
+  constructor(private driverService:DriverService, private modalService:NgbModal) { }
 
   ngOnInit(): void {
     this.getAllDrivers();
@@ -27,5 +29,20 @@ export class DriverComponent implements OnInit {
          console.log(this.drivers);
       }
     })
+}
+
+public openModal(model:any, driverInfo?:any ){
+  this.modalService.open(model ,{size:"l"});
+  this.driverInfo = driverInfo;
+}
+
+public closeModal(modelRef:any) {
+this.modalService.dismissAll(modelRef);
+}
+
+deleteDriver(driverId:any) {
+this.driverService.delete(driverId).subscribe((response:any ) => {
+  this.getAllDrivers();
+});
 }
 }
