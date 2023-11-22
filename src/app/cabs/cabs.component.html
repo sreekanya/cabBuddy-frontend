@@ -1,8 +1,11 @@
 <div class="container">
     <div class="p-3 mb-2 bg-light rounded-3">
       <div class="container-fluid py-5">
-        <span class="display-5 fw-bold">Cabs Dashboard</span>
-        <button type="button" class="btn btn-sm btn-dark" style="float:right;">Add New</button>
+        <h5 class="display-5 fw-bold">Cabs Dashboard</h5>
+        <div class="d-flex justify-content-end " >
+          <button type="button" class="btn btn-sm btn-dark" style="float:right;" (click)="openModal(cabsModal)">Add New</button>
+        </div>
+        
         <table class="table table-hover">
          
           <thead>
@@ -19,8 +22,8 @@
               <td>{{cab.cabModel}}</td>
               <td>{{cab.cabType}}</td>
               <td>
-                <button type="button" class="btn btn-sm btn-dark">Update</button>
-                <button type="button" class="btn btn-sm btn-dark">Dlelete</button>
+                <button type="button" class="btn btn-sm btn-dark me-1" (click)="openModal(cabsModal, cab)">Update</button>
+                <button type="button" class="btn btn-sm btn-danger me-1" (click)="deleteCab(cab.cabId)">Delete</button>
 
               </td>
             </tr>
@@ -29,3 +32,11 @@
       </div>
     </div>
 </div>
+
+<ng-template #cabsModal let-model>
+  <app-addcabs  [cabInfo]="cabInfo" (closeModel)="closeModal(cabsModal)"></app-addcabs>
+</ng-template>
+
+<!-- <ng-template #cabViewModal let-model>
+  <app-viewcab [cabInfo]="cabInfo" (closeModel)="closeModel(cabsModal)"></app-viewcab>
+</ng-template> -->
