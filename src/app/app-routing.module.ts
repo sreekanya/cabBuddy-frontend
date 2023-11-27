@@ -8,7 +8,8 @@ const routes: Routes = [
   {path:'', redirectTo:'/dashboard', pathMatch:"full"},
   {path:'dashboard', component: DashboardComponent},
   {path:'cabs', component:CabsComponent},
-  {path:'driver', component:DriverComponent }
+  {path:'driver', component:DriverComponent },
+  {path:'bookings', component:DashboardComponent }
   
   ];
 

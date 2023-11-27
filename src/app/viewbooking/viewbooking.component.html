@@ -1,0 +1,48 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">View Booking</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="close()">
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <div class="row">
+        <div class="col-md-6">
+            <p> <span class="text-sm text-muted"> Booking Id</span> : {{bookingsInfo?.bookingId}}</p>
+        </div>
+        <div class="col-md-6">  
+            <p> <span class="text-sm text-muted"> Booking From</span> : {{bookingsInfo?.bookingFrom}}</p>
+            <p> <span class="text-sm text-muted"> Booking To</span> : {{bookingsInfo?.bookingTo}}</p>
+        </div>
+        <div class="col-md-12">
+            <p> <span class="text-sm text-muted"> Customer Name</span> : {{bookingsInfo?.customerName}}</p>
+            <p> <span class="text-sm text-muted"> Customer Email</span> : {{bookingsInfo?.customerEmail}}</p>
+            <p> <span class="text-sm text-muted"> Customer Phone</span> : {{bookingsInfo?.customerPhone}}</p>
+        </div>
+        
+        <div class="col-md-12">
+            <p>Cab Details</p>
+            <p> <span class="text-sm text-muted"> Cab Id</span> : {{bookingsInfo?.cabId.cabId}}</p>
+            <p> <span class="text-sm text-muted"> Cab Model</span> : {{bookingsInfo?.cabId.cabModel}}</p>
+            <p> <span class="text-sm text-muted"> Cab Type</span> : {{bookingsInfo?.cabId.cabType}}</p>
+        </div>
+        <div class="col-md-12">
+            <p>Deriver Details</p>
+            <p> <span class="text-sm text-muted"> Driver Id</span> : {{bookingsInfo?.driverId.driverId}}</p>
+            <p> <span class="text-sm text-muted"> Driver Name</span> : {{bookingsInfo?.driverId.driverName}}</p>
+            <p> <span class="text-sm text-muted"> Driver Phone</span> : {{bookingsInfo?.driverId.driverPhone}}</p>
+            <p> <span class="text-sm text-muted"> Driver Email</span> : {{bookingsInfo?.driverId.driverEmail}}</p>
+            <p> <span class="text-sm text-muted"> Driver Address</span> : {{bookingsInfo?.driverId.driverAddress}}</p>
+        </div>
+        <div class="col-md-12">
+            <p> <span class="text-sm text-muted"> Booking Date</span> : {{bookingsInfo?.dateBooking | date}}</p>
+            <p> <span class="text-sm text-muted"> Number of passengers</span> : {{bookingsInfo?.numPassengers}}</p>
+            <p> <span class="text-sm text-muted"> Total pay amount</span> : {{bookingsInfo?.totalPay | currency}}</p>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light btn-md" data-bs-dismiss="modal" (click)="close()">
+          Cancel
+        </button>
+    </div> 
+ </div>

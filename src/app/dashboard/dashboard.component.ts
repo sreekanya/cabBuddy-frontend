@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CabookingsService } from '../services/cabookings.service';
 
 @Component({
@@ -10,8 +11,9 @@ export class DashboardComponent implements OnInit {
 
   public bookings:any[]= [];
   //fetching: boolean = false;
+  public bookingsInfo:any;
 
-  constructor(private bookingService:CabookingsService) { }
+  constructor(private bookingService:CabookingsService, private modalService:NgbModal) { }
 
   ngOnInit(): void {
     this.getAllBookings();
@@ -27,5 +29,20 @@ export class DashboardComponent implements OnInit {
          console.log(this.bookings);
       }
     })
+}
+
+public openModal(model:any, bookingInfo?:any ){
+  this.modalService.open(model ,{size:"l"});
+  this.bookingsInfo = bookingInfo;
+}
+
+public closeModal(modelRef:any) {
+this.modalService.dismissAll(modelRef);
+}
+
+deleteBooking(bookingId:any) {
+this.bookingService.delete(bookingId).subscribe((response:any ) => {
+  this.getAllBookings();
+});
 }
 }

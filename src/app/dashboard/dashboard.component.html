@@ -3,7 +3,7 @@
       <div class="container-fluid py-5">
         <h5 class="display-5 fw-bold">Cab Booking Dashboard</h5>
         <div class="d-flex justify-content-end " >
-          <button type="button" class="btn btn-sm btn-dark" style="float:right;">Add New</button>
+          <button type="button" class="btn btn-sm btn-dark" (click)="openModal(bookingsModal)">Add New</button>
         </div>
         <table class="table table-hover">
          
@@ -27,7 +27,9 @@
               <td>{{booking.numPassengers}}</td>
               <td>{{booking.totalPay}}</td>
               <td>
-                <button type="button" class="btn btn-sm btn-dark">View</button>
+                <button type="button" class="btn btn-sm btn-secondary me-1" (click)="openModal(bookingsViewModal, booking)">View</button>
+                <button type="button" class="btn btn-sm btn-dark me-1" (click)="openModal(bookingsModal, booking)">Update</button>
+                <button type="button" class="btn btn-sm btn-danger me-1" (click)="deleteBooking(booking.bookingId)">Delete</button>
               </td>
             </tr>
           </tbody>
@@ -36,42 +38,10 @@
     </div>
 </div>
 
-<!-- <div class="container-fluid mt-2"> -->
-  <!-- <div class="row w-100 m-0" *ngIf="fetching"> -->
-   <!-- <div class="row w-100 m-0" >
-    <div class="col-12 d-flex justify-content-center align-items-center">
-      <div class="spinner-border" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-    </div>
-  </div> -->
-  <!-- <div class="row w-100 m-0 mt-2" *ngIf="!fetching"> -->
-  <!-- <div class="row w-100 m-0 mt-2" >
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let booking of bookings">
-      <div class="card shadow-sm" style="height: 100%;">
-        <img [src]="booking?.imgUrl" alt="" class="card-img-top img mt-2">
-        <div class="card-body">
-          <h5 class="m-0 font-weight-bold card-title"> -->
-            <!-- {{ booking?.bookingId }} -->
-          <!-- </h5>
-          <p class="card-text text-limit"> -->
-            <!-- {{ booking?.cabId }} -->
-          <!-- </p>
-        </div>
-        <div class="card-footer bg-white border-0">
-          <div class="d-flex justify-content-evenly align-items-center">
-            <button type="button" class="btn btn-sm btn-dark mr-2">
-              Buy Now
-            </button>
-            <button type="button" class="btn btn-sm btn-dark mr-2" >
-              Add to Cart
-            </button>
-            <button type="button" class="btn btn-sm btn-dark" >
-              Add to Whishlist
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> --> 
+<ng-template #bookingsModal let-model>
+  <app-createbookings [bookingsInfo]="bookingsInfo" (closeModel)="closeModal(bookingsModal)"></app-createbookings>
+</ng-template>
+
+<ng-template #bookingsViewModal let-model>
+  <app-viewbooking [bookingsInfo]="bookingsInfo" (closeModel)="closeModal(bookingsViewModal)"></app-viewbooking>
+</ng-template>

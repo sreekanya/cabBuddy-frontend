@@ -13,6 +13,8 @@ import { AddcabsComponent } from './addcabs/addcabs.component';
 import "@angular/compiler";
 import { ReactiveFormsModule } from '@angular/forms';
 import { AdddriversComponent } from './adddrivers/adddrivers.component';
+import { CreatebookingsComponent } from './createbookings/createbookings.component';
+import { ViewbookingComponent } from './viewbooking/viewbooking.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { AdddriversComponent } from './adddrivers/adddrivers.component';
     DriverComponent,
     NavbarComponent,
     AddcabsComponent,
-    AdddriversComponent
+    AdddriversComponent,
+    CreatebookingsComponent,
+    ViewbookingComponent
   ],
   imports: [
     BrowserModule,
