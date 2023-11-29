@@ -24,6 +24,14 @@
                 <input type="text" class="form-control" name="customerPhone" formControlName="customerPhone">
              </div>
              <div class="form-group col mt-2">
+               <label>Cab Id</label>
+               <input type="text" class="form-control" name="cabId" #cabIdForm formControlName="cabId">
+            </div>
+            <div class="form-group col mt-2">
+               <label>Driver Id</label>
+               <input type="text" class="form-control" name="driverId" #driverIdForm formControlName="driverId">
+            </div>
+             <div class="form-group col mt-2">
                 <label>Number of Passengers</label>
                 <input type="text" class="form-control" name="numPassengers" formControlName="numPassengers">
              </div>  
@@ -35,13 +43,20 @@
                 <label>Booking To</label>
                 <input type="text" class="form-control" name="bookingTo" formControlName="bookingTo">
              </div> 
+             <!-- <div class="form-group col mt-2">
+               <label>Number of Miles</label>
+               <input type="text" class="form-control" name="nomiles" formControlName="nomiles">
+            </div>  -->
              <div class="form-group col mt-2">
                 <label>Total Pay</label>
-                <input type="text" class="form-control" name="totalPay" formControlName="totalPay" readonly>
+                <input type="text" class="form-control" name="totalPay" formControlName="totalPay" [(ngModel)] = "totalPay" readonly>
              </div>  
           </div>
           
           <div class="modal-footer">
+             
+            <button type="button" class="btn btn-dark btn-md" (click)="calculate()" > Calculate </button>
+            
             <button type="button" class="btn btn-light btn-md" data-bs-dismiss="modal" (click)="close()">
               Cancel
             </button>
